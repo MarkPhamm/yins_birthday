@@ -77,6 +77,67 @@
   let ambientTimer = null;
   let ambientDense = false;
 
+  /* Background music via a hidden YouTube embed — streamed through YouTube's
+     official player, not downloaded. Autoplay-with-sound needs a user
+     gesture, so playback starts on the first tap/click anywhere. */
+  const musicToggle = document.getElementById("music-toggle");
+  const YT_VIDEO_ID = "YFgtSaxQFb4";
+  let ytPlayer = null;
+  let ytReady = false;
+  let musicWanted = false;
+  let musicStarted = false;
+  let musicMuted = false;
+
+  window.onYouTubeIframeAPIReady = function () {
+    ytPlayer = new YT.Player("yt-audio-player", {
+      videoId: YT_VIDEO_ID,
+      playerVars: {
+        autoplay: 0,
+        controls: 0,
+        disablekb: 1,
+        modestbranding: 1,
+        rel: 0,
+        playsinline: 1,
+        loop: 1,
+        playlist: YT_VIDEO_ID,
+      },
+      events: {
+        onReady: function () {
+          ytReady = true;
+          if (musicWanted) startMusic();
+        },
+      },
+    });
+  };
+
+  function startMusic() {
+    if (musicStarted || !ytReady || !ytPlayer) return;
+    musicStarted = true;
+    ytPlayer.playVideo();
+    if (musicToggle) musicToggle.classList.add("is-playing");
+  }
+
+  function requestMusic() {
+    if (musicWanted) return;
+    musicWanted = true;
+    startMusic();
+  }
+
+  function toggleMusic() {
+    if (!ytPlayer) return;
+    musicMuted = !musicMuted;
+    if (musicMuted) {
+      ytPlayer.mute();
+    } else {
+      ytPlayer.unMute();
+    }
+    if (musicToggle) {
+      musicToggle.classList.toggle("is-muted", musicMuted);
+      musicToggle.setAttribute("aria-pressed", String(musicMuted));
+      musicToggle.setAttribute("aria-label", musicMuted ? "Unmute music" : "Mute music");
+    }
+  }
+
   function pickFloral() {
     const roll = Math.random();
     if (roll < 0.1) return { kind: "heart", html: HEART_SVG, cls: "float-bit--heart" };
@@ -464,6 +525,14 @@
         openLetter();
       }
     });
+
+    ["pointerdown", "keydown"].forEach(function (type) {
+      document.addEventListener(type, requestMusic, { once: true, passive: true });
+    });
+
+    if (musicToggle) {
+      musicToggle.addEventListener("click", toggleMusic);
+    }
   }
 
   if (document.readyState === "loading") {
