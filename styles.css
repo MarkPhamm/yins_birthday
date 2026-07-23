@@ -1082,6 +1082,43 @@ button {
   background: var(--ink);
 }
 
+/* Opening poem — verses fade up one by one like a poem being read aloud */
+.poem {
+  max-width: 34rem;
+  margin: 0 auto 2rem;
+  padding: 0.5rem 0 1rem;
+  text-align: center;
+}
+
+.poem-line {
+  margin: 0 0 0.7rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.25rem, 3.6vw, 1.6rem);
+  line-height: 1.5;
+  color: var(--ink-soft);
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.poem-line--emphasis {
+  font-weight: 600;
+  font-size: clamp(1.4rem, 4vw, 1.85rem);
+  color: var(--rose-deep);
+}
+
+.poem.is-shown .poem-line {
+  animation: poem-line-in 0.9s var(--ease-out) both;
+  animation-delay: calc(300ms + var(--i, 0) * 320ms);
+}
+
+@keyframes poem-line-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Scroll reveals */
 .reveal {
   opacity: 0;
@@ -1148,12 +1185,18 @@ button {
   .site.is-visible .hero-sub,
   .hero-scroll-cue,
   .signature::after,
+  .poem-line,
   .reveal {
     animation: none !important;
     transition: none !important;
   }
 
   .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .poem-line {
     opacity: 1;
     transform: none;
   }
