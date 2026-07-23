@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For Yến — 23</title>
+    <meta name="description" content="A birthday letter for Yến from Mon." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="petal-layer" aria-hidden="true" id="petal-layer"></div>
+
+    <section class="envelope-screen" id="envelope-screen" aria-label="Open birthday letter">
+      <div class="envelope-glow" aria-hidden="true"></div>
+      <div class="garden" aria-hidden="true">
+        <span class="bloom bloom--tl"></span>
+        <span class="bloom bloom--tr"></span>
+        <span class="bloom bloom--bl"></span>
+        <span class="bloom bloom--br"></span>
+        <span class="vine vine--left"></span>
+        <span class="vine vine--right"></span>
+      </div>
+      <div class="envelope-stack">
+        <p class="envelope-eyebrow">for your 23rd</p>
+        <h1 class="envelope-name">Yến</h1>
+        <button type="button" class="envelope" id="open-letter" aria-label="Open my letter">
+          <span class="envelope-flap"></span>
+          <span class="envelope-letter" aria-hidden="true">
+            <span class="envelope-letter-lines"></span>
+          </span>
+          <span class="envelope-body">
+            <span class="envelope-seal" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28" focusable="false">
+                <path
+                  d="M12 21s-6.2-4.35-9.33-8.08C.8 10.7 1.1 7.4 3.4 5.7c2-1.5 4.7-1.1 6.2.7L12 9l2.4-2.6c1.5-1.8 4.2-2.2 6.2-.7 2.3 1.7 2.6 5 .73 7.22C18.2 16.65 12 21 12 21z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <span class="envelope-cta">Open my letter</span>
+          </span>
+        </button>
+        <p class="envelope-hint">from Mon, with love</p>
+      </div>
+    </section>
+
+    <div class="burst-layer" id="burst-layer" aria-hidden="true"></div>
+    <canvas class="fx-canvas" id="fx-canvas" aria-hidden="true"></canvas>
+    <div class="pop-layer" id="pop-layer" aria-hidden="true"></div>
+
+    <main class="site" id="site" hidden>
+      <header class="hero">
+        <div class="hero-media">
+          <img
+            src="images/23_birthday/yen-peace-closeup.jpg"
+            alt="Yến smiling with a peace sign"
+            class="hero-image"
+          />
+          <div class="hero-wash" aria-hidden="true"></div>
+        </div>
+        <div class="hero-copy">
+          <p class="hero-kicker">Happy birthday</p>
+          <h1 class="hero-name">Yến</h1>
+          <p class="hero-line">23, but you still look 18 =)))</p>
+          <p class="hero-sub">A little letter I wish I could have written by hand.</p>
+          <span class="hero-scroll-cue" aria-hidden="true"></span>
+        </div>
+      </header>
+
+      <article class="letter" aria-label="Birthday letter">
+        <div class="letter-paper">
+          <p class="letter-date reveal">Dear Yến,</p>
+
+          <p class="reveal">
+            Happy birthday, Yến — twenty-three already, but somehow you still look eighteen.
+            First of all, thank you so much for spending the time with me through all of this.
+            It has been a tough decision and a tough timing for me too, but hey — I have you by
+            my side, and for me, that is all that matters. I know that I love you, and I will
+            continue to. Hopefully one day I can hold you tight, and this time, I will never
+            let you go.
+          </p>
+
+          <figure class="letter-photo reveal">
+            <img
+              src="images/23_birthday/yen-elevator-flowers.jpg"
+              alt="Yến in an elevator wearing a floral shirt"
+            />
+          </figure>
+
+          <p class="reveal">
+            So Yến is twenty-three now… Mon still remembers two years ago around this same
+            time — when we first got together. What else can I say? Those were some of the
+            best moments of my life. Things did not work out back then. You had to go to the
+            UK, and Mon had to find a job, and life kept pulling in different directions.
+          </p>
+
+          <p class="reveal">
+            But I have always believed we were still meant to be. It was never because we were
+            not deeply in love that we broke up.
+          </p>
+
+          <figure class="letter-photo reveal">
+            <img
+              src="images/23_birthday/yen-striped-shirt.jpg"
+              alt="Yến in a striped shirt making a playful pout"
+            />
+          </figure>
+
+          <p class="reveal">
+            This time, I am missing your birthday again — but hey, I am coming back to hold
+            you tight. I really do want to marry you, because with you, I am exceptional.
+            Without you, I am just fine… or sometimes not even fine. I would love to be with
+            you through the ups and downs, through everything again. But this time, things
+            will be different.
+          </p>
+
+          <figure class="letter-photo reveal">
+            <img
+              src="images/23_birthday/yen-mirror-green.jpg"
+              alt="Yến taking a mirror selfie in a green shirt"
+            />
+          </figure>
+
+          <p class="reveal">
+            We will be madly in love the way we used to be, but this time both of us will be
+            more mature. If you love me, please think about us. Please just do not push me
+            away. I want us to make the decision — not just you, or just me.
+          </p>
+
+          <figure class="letter-photo letter-photo--wide reveal">
+            <img
+              src="images/23_birthday/yen-airport-smile.jpg"
+              alt="Yến smiling and presenting with open hands"
+            />
+          </figure>
+
+          <p class="reveal">
+            At the end of the day, I am still here — waiting to hug you from behind. Waiting
+            for your love letter so I can kiss it, since I am so far away. I really wish this
+            could be a handwritten letter, but hey… I do not think you could actually read my
+            handwriting. It is notoriously bad.
+          </p>
+
+          <figure class="letter-video reveal">
+            <video
+              controls
+              playsinline
+              preload="metadata"
+              poster="images/23_birthday/yen-peace-pajamas.jpg"
+            >
+              <source src="images/23_birthday/yen-birthday-clip.mp4" type="video/mp4" />
+            </video>
+          </figure>
+
+          <figure class="letter-photo reveal">
+            <img
+              src="images/23_birthday/yen-peace-pajamas.jpg"
+              alt="Yến smiling with a peace sign"
+            />
+          </figure>
+
+          <p class="reveal closing">
+            Happy birthday. I love you from the bottom of my heart.
+          </p>
+
+          <p class="signature reveal">Mon</p>
+        </div>
+      </article>
+
+      <footer class="site-footer">
+        <p>Made for Yến, with all my love</p>
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
